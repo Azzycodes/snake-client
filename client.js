@@ -6,12 +6,12 @@ const connect = function() {
   });
   conn.setEncoding('utf8');
   conn.on('connect', () => { //inside the on('xxx'), xxx is the handler
-  console.log('Successfully connected!');
-  conn.write('Name: Azzam');
-});
+    console.log('Successfully connected!');
+    conn.write('Name: Azzam');
+  });
   conn.on('data', (data) => {
     console.log("Server says: ", data);
   });
   return conn;
-}
+};
 module.exports = { connect };
