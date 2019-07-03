@@ -1,20 +1,17 @@
 const net = require('net');
-
-const client = function() {
-  const conn = net.createConnection({ 
-    host: '172.46.0.110',
-    port: 50541
+const connect = function() {
+  const conn = net.createConnection({
+    host: 'localhost',
+    port:50541
   });
-  // interpret incoming data as text
-  conn.setEncoding('utf8'); 
+  conn.setEncoding('utf8');
+  conn.on('connect', () => { //inside the on('xxx'), xxx is the handler
+  console.log('Successfully connected!');
+  conn.write('Name: Azzam');
+});
   conn.on('data', (data) => {
-    console.log("Server says ", data);
-
+    console.log("Server says: ", data);
   });
-
   return conn;
 }
-
-conn.setEncoding('utf8'); // interpret data as text
-
-module.exports = client;
+module.exports = { connect };
