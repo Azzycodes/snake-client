@@ -18,16 +18,18 @@ const handleUserInput = function(key) {
     connection.write("Move: up");
   }
   if (key === "a") {
-    connection.write("Move: down");
+    connection.write("Move: left");
   }
   if (key === "s") {
-    connection;
-    if (key === "d") {
-      connection.write("Move: right");
-    }
-
+    connection.write("Move: down");
+  }
+  if (key === "d") {
+    connection.write("Move: right");
   }
 
+  if (key === "q") {
+    connection.write("Say: Get ready to lose");
+  }
 
 };
 module.exports = setupInput;
